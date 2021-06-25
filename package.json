@@ -1,0 +1,21 @@
+{
+  "name": "WPR381Project",
+  "version": "1.0.0",
+  "description": "Node Application that will facilitate the creation and extraction of archive files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start" : "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarrenOosthuizen/WPR381Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarrenOosthuizen/WPR381Project/issues"
+  },
+  "homepage": "https://github.com/DarrenOosthuizen/WPR381Project#readme"
+}
