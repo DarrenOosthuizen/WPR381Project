@@ -19,13 +19,16 @@ let Extract3 = '  |  _|    \\  /    | |   | |_) |   / - \\   | |       | |    | 
 let Extract4 = '  | |___   /  \\    | |   |  _ <   / ___ \\  | |___    | |    | |  |_____| | |\\  |  / ___ \\   | |   | |_| | |  _ < ';
 let Extract5 = '  |_____| /_/\\_\\   |_|   |_| \\_\\ /_/   \\_\\  \\____|   |_|   |___|         |_| \\_| /_/   \\_\\  |_|    \\___/  |_| \\_\\';
 
+let Text1 = "          A simple application for creating and extracting archives";
+let Text2 = "          For Commands Run";
+let Text3 = "Just Follow These Instruction";
 
 console.log('\x1b[33m%s\x1b[0m', Welcome1);
 console.log('\x1b[33m%s\x1b[0m', Welcome2);
 console.log('\x1b[33m%s\x1b[0m', Welcome3);
 console.log('\x1b[33m%s\x1b[0m', Welcome4);
 console.log('\x1b[33m%s\x1b[0m', Welcome5);
-
+console.log("")
 
 console.log('\x1b[36m%s\x1b[0m', Amazing1);
 console.log('\x1b[36m%s\x1b[0m', Amazing2);
@@ -33,11 +36,17 @@ console.log('\x1b[36m%s\x1b[0m', Amazing3);
 console.log('\x1b[36m%s\x1b[0m', Amazing4);
 console.log('\x1b[36m%s\x1b[0m', Amazing5);
 console.log('\x1b[36m%s\x1b[0m', Amazing6);
-
+console.log("")
 console.log('\x1b[31m%s\x1b[0m', Extract1);
 console.log('\x1b[31m%s\x1b[0m', Extract2);
 console.log('\x1b[31m%s\x1b[0m', Extract3);
 console.log('\x1b[31m%s\x1b[0m', Extract4);
 console.log('\x1b[31m%s\x1b[0m', Extract5);
+console.log("")
 
+console.log('\x1b[34m%s\x1b[0m', Text1);
+console.log('\x1b[34m%s\x1b[0m', Text2 , '\x1b[32m', Text3);
+console.log("")
+
+console.log('\x1b[34m%s\x1b[0m', "?" , '\x1b[1m' , "Would you like to 'Compress Folders' or 'Extract Files' ? ...");
 
