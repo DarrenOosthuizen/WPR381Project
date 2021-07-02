@@ -1,3 +1,3 @@
-let { PrintMenu } = require("./menu");
+import { PrintMenu } from "./menu.js"
 
 PrintMenu();
