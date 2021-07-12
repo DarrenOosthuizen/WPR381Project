@@ -1,3 +1,4 @@
+import terminalImage from "terminal-image";
 let Welcome1 = "__        __  	    _                                        _";
 let Welcome2 =
   "\\ \\      / /  ___  | |   ___    ___    _ __ ___     ___     | |_    ___";
@@ -36,7 +37,7 @@ let Text1 =
 let Text2 = "          For Commands Run";
 let Text3 = "Just Follow These Instruction";
 
-function PrintMenu() {
+async function PrintMenu() {
   console.log("\x1b[33m%s\x1b[0m", Welcome1);
   console.log("\x1b[33m%s\x1b[0m", Welcome2);
   console.log("\x1b[33m%s\x1b[0m", Welcome3);
@@ -58,6 +59,8 @@ function PrintMenu() {
   console.log("\x1b[31m%s\x1b[0m", Extract5);
   console.log("");
 
+  console.log(await terminalImage.file("Doof.png"));
+
   console.log("\x1b[34m%s\x1b[0m", Text1);
   console.log("\x1b[34m%s\x1b[0m", Text2, "\x1b[32m", Text3);
   console.log("");
@@ -70,4 +73,4 @@ function PrintMenu() {
   );
 }
 
-module.exports = { PrintMenu };
+export { PrintMenu };
