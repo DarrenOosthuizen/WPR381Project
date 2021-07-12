@@ -7,10 +7,10 @@ import {ThroughDirectory,SortedDirectory, SortOrderFolder} from './directory.js'
 PrintMenu();
 
 //Function to look for all folder in path
-//ThroughDirectory("FILEPATH")
+ThroughDirectory("F:/Blizzard")
 //Function to sort folders in order of tree
-//SortOrderFolder()
+SortOrderFolder()
 //Array of Sorted Directories
-//console.log(SortedDirectory)
+console.log(SortedDirectory)
 
 
