@@ -35,13 +35,13 @@ function SortOrderFolder()
     });
 }
 
-//Function used to sort Multi-Dimensional Arrayn in ASC Order
+//Function used to sort Multi-Dimensional Arrayn in DES Order
 function sortFolders(a,b){
     if (a[0] === b[0]) {
         return 0;
     }
     else {
-        return (a[0] < b[0]) ? -1 : 1;
+        return (a[0] > b[0]) ? -1 : 1;
     }
 }
 
