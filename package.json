@@ -21,6 +21,7 @@
   "dependencies": {
     "directory": "^0.1.0",
     "directory-tree": "^2.2.9",
+    "extract-zip": "^2.0.1",
     "prompt-sync": "^4.2.0",
     "terminal-image": "^2.0.0",
     "tree": "^0.1.3",

@@ -1,9 +1,11 @@
 const dirTree = require("directory-tree");
 const { zip } = require("zip-a-folder");
 const fs = require("fs");
+let ParentTree;
+let ChildTree;
 
-const ParentTree = dirTree("./foo");
-const ChildTree = ParentTree.children;
+
+ 
 
 let Value = [];
 let SortedDirectory = [];
@@ -46,7 +48,7 @@ function sortFolders(a, b) {
 async function CompressZIP() {
   while (SortedDirectory.length > 0) {
     await zip(SortedDirectory[0], SortedDirectory[0] + ".zip");
-    await fs.rmdirSync(SortedDirectory[0], { recursive: true });
+    await fs.rmSync(SortedDirectory[0], { recursive: true });
     SortedDirectory.shift();
   }
 }
@@ -54,7 +56,7 @@ async function CompressZIP() {
 async function CompressRAR() {
   while (SortedDirectory.length > 0) {
     await zip(SortedDirectory[0], SortedDirectory[0] + ".rar");
-    await fs.rmdirSync(SortedDirectory[0], { recursive: true });
+    await fs.rmSync(SortedDirectory[0], { recursive: true });
     SortedDirectory.shift();
   }
 }
@@ -62,7 +64,7 @@ async function CompressRAR() {
 async function Compress7Z() {
   while (SortedDirectory.length > 0) {
     await zip(SortedDirectory[0], SortedDirectory[0] + ".7Z");
-    await fs.rmdirSync(SortedDirectory[0], { recursive: true });
+    await fs.rmSync(SortedDirectory[0], { recursive: true });
     SortedDirectory.shift();
   }
 }
@@ -70,12 +72,20 @@ async function Compress7Z() {
 async function CompressRAR4() {
   while (SortedDirectory.length > 0) {
     await zip(SortedDirectory[0], SortedDirectory[0] + ".rar4");
-    await fs.rmdirSync(SortedDirectory[0], { recursive: true });
+    await fs.rmSync(SortedDirectory[0], { recursive: true });
     SortedDirectory.shift();
   }
 }
+const compress = (path) => {
+  Value = [];
+  SortedDirectory = [];
+  
+  ParentTree = dirTree(path);
+  ChildTree = ParentTree.children;
+  GetDir(ChildTree);
+  SortOrderFolder();
+   
+}
+ 
 
-GetDir(ChildTree);
-SortOrderFolder();
-
-module.exports = { Compress7Z, CompressRAR, CompressZIP, CompressRAR4 };
+module.exports = { Compress7Z, CompressRAR, CompressZIP, CompressRAR4, compress };

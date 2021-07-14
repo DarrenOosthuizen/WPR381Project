@@ -67,7 +67,7 @@ async function PrintMenu() {
     "\x1b[34m%s\x1b[0m",
     "?",
     "\x1b[1m",
-    "Would you like to 'Compress Folders' or 'Extract Files' ? ..."
+    "Please browse to location..."
   );
 }
 
