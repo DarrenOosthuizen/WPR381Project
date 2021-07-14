@@ -1,16 +1,12 @@
-// const dirTree = require("directory-tree");
-// const {zip} = require('zip-a-folder')
-// const fs = require('fs')
-import fs from 'fs'
-import  {zip} from "zip-a-folder";
-import dirTree from "directory-tree"
+const dirTree = require("directory-tree");
+const { zip } = require("zip-a-folder");
+const fs = require("fs");
 
 const ParentTree = dirTree("./foo");
 const ChildTree = ParentTree.children;
 
-
 let Value = [];
-let SortedDirectory = []
+let SortedDirectory = [];
 
 function GetDir(directory) {
   for (var k in directory) {
@@ -23,47 +19,63 @@ function GetDir(directory) {
   }
 }
 
-
-function SortOrderFolder()
-{
-    let FolderSorted = []
-    Value.forEach(folder => {
-        let count = 0;
-        for (let index = 0; index < folder.length; index++) {
-            if(folder[index] == "\\")
-           count++;
-        }
-        let array = [count,folder]
-        FolderSorted.push(array)
-    });
-    FolderSorted.sort(sortFolders)
-    FolderSorted.forEach(element => {
-        SortedDirectory.push(element[1])
-    });
+function SortOrderFolder() {
+  let FolderSorted = [];
+  Value.forEach((folder) => {
+    let count = 0;
+    for (let index = 0; index < folder.length; index++) {
+      if (folder[index] == "\\") count++;
+    }
+    let array = [count, folder];
+    FolderSorted.push(array);
+  });
+  FolderSorted.sort(sortFolders);
+  FolderSorted.forEach((element) => {
+    SortedDirectory.push(element[1]);
+  });
 }
 
-function sortFolders(a,b){
-    if (a[0] === b[0]) {
-        return 0;
-    }
-    else {
-        return (a[0] > b[0]) ? -1 : 1;
-    }
+function sortFolders(a, b) {
+  if (a[0] === b[0]) {
+    return 0;
+  } else {
+    return a[0] > b[0] ? -1 : 1;
+  }
 }
 
-
-async function CompressZIP()
-{
-    while(SortedDirectory.length >0)
-    {
-    await zip(SortedDirectory[0], SortedDirectory[0] + '.zip');
-    await fs.rmdirSync(SortedDirectory[0],{recursive:true})
-    SortedDirectory.shift()
-    }
-
+async function CompressZIP() {
+  while (SortedDirectory.length > 0) {
+    await zip(SortedDirectory[0], SortedDirectory[0] + ".zip");
+    await fs.rmdirSync(SortedDirectory[0], { recursive: true });
+    SortedDirectory.shift();
+  }
 }
 
-GetDir(ChildTree)
-SortOrderFolder()
-CompressZIP()
+async function CompressRAR() {
+  while (SortedDirectory.length > 0) {
+    await zip(SortedDirectory[0], SortedDirectory[0] + ".rar");
+    await fs.rmdirSync(SortedDirectory[0], { recursive: true });
+    SortedDirectory.shift();
+  }
+}
 
+async function Compress7Z() {
+  while (SortedDirectory.length > 0) {
+    await zip(SortedDirectory[0], SortedDirectory[0] + ".7Z");
+    await fs.rmdirSync(SortedDirectory[0], { recursive: true });
+    SortedDirectory.shift();
+  }
+}
+
+async function CompressRAR4() {
+  while (SortedDirectory.length > 0) {
+    await zip(SortedDirectory[0], SortedDirectory[0] + ".rar4");
+    await fs.rmdirSync(SortedDirectory[0], { recursive: true });
+    SortedDirectory.shift();
+  }
+}
+
+GetDir(ChildTree);
+SortOrderFolder();
+
+module.exports = { Compress7Z, CompressRAR, CompressZIP, CompressRAR4 };
