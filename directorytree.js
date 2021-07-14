@@ -1,8 +1,9 @@
-const dirTree = require("directory-tree");
-const {zip} = require('zip-a-folder')
-const fs = require('fs')
-
-
+// const dirTree = require("directory-tree");
+// const {zip} = require('zip-a-folder')
+// const fs = require('fs')
+import fs from 'fs'
+import  {zip} from "zip-a-folder";
+import dirTree from "directory-tree"
 
 const ParentTree = dirTree("./foo");
 const ChildTree = ParentTree.children;
@@ -12,7 +13,7 @@ let Value = [];
 let SortedDirectory = []
 
 function GetDir(directory) {
-  for (k in directory) {
+  for (var k in directory) {
     if (directory[k].type == "directory") {
       Value.push(directory[k].path);
       if (directory[k].children.length >= 1) {
@@ -65,3 +66,4 @@ async function CompressZIP()
 GetDir(ChildTree)
 SortOrderFolder()
 CompressZIP()
+
