@@ -67,7 +67,13 @@ async function PrintMenu() {
     "\x1b[34m%s\x1b[0m",
     "?",
     "\x1b[1m",
-    "Please browse to location..."
+    "Please browse to location...",
+    "\n   Once at Directory run one of the following commands",
+    "\x1b[34m",
+    "\n   Type compress {foldername} {archive selection} to compress the directory",
+    "\n   Type extract {foldername} to extract the directory",
+    "\n   Type EXIT to quit the Extracti-Nator!",
+    "\x1b[33m",
   );
 }
 
